@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import backgroundImg from "./assets/backgroundImg.jpg"; // adjust path if needed
-import logo from "./assets/Logo2.png"
 import { useNavigate } from "react-router-dom";
+import backgroundImg from "./assets/backgroundImg.jpg"; // adjust path if needed
+import logo from "./assets/Logo2.png";
 
 const AuthForm = () => {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const AuthForm = () => {
         e.preventDefault();
         if (activeTab === "login") {
             console.log("Logging in:", { loginAs, email, password, remember });
-            navigate('/')
+            navigate('/chat');
         } else {
             console.log("Registering:", { loginAs, email, password });
         }
@@ -23,31 +23,18 @@ const AuthForm = () => {
 
     return (
         <div
-            className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-start bg-gradient-to-tl from-[#2D3092] via-[#00AEFF] to-[#FFCB06] shadow-2xl "
-            // style={{ backgroundImage: `url(${backgroundImg})` }}
+            className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-start bg-gradient-to-tl from-[#2D3092] via-[#00AEFF] to-[#FFCB06]"
         >
-            {/* Overlay with 80% opacity */}
-            <div className="absolute inset-0 bg-black/20 "></div>
+            <div className="absolute inset-0 bg-black/20"></div>
 
-            {/* Header */}
-            {/* <header className="relative w-full flex items-center justify-between px-6 py-4 bg-transparent backdrop-blur-sm z-10">
-                <div className="flex items-center space-x-2 text-white text-xl font-bold">
-                    <img src={logo} alt="Logo" className="w-10 h-10" />
-                    <span>National Cadet Corps</span>
-                </div>
-            </header> */}
-
-            {/* Form container */}
-            <div className="flex flex-col relative bg-white/30 backdrop-blur-md rounded-xl shadow-lg w-full max-w-3xl p-8 space-y-6 mx-4 mt-25 z-10">
-                {/* Tabs */}
-                {/* <div className="flex items-center justify-center text-white font-bold text-3xl">
-                    National Cadet Corps
-                </div> */}
-                <div className="flex flex-row justify-evenly">
-                    <div className="flex justify-center items-center">
-                        <img className="w-50" src={logo} alt="" />
+            {/* Use responsive classes for background: transparent on mobile, blurred on md and up */}
+            <div className="flex flex-col relative bg-transparent md:bg-white/30 md:backdrop-blur-md rounded-xl shadow-lg w-full max-w-3xl p-8 space-y-6 mx-4 mt-20 z-10">
+                {/* Tabs and Form Section */}
+                <div className="flex flex-col md:flex-row justify-evenly">
+                    <div className="flex justify-center items-center mb-6 md:mb-0">
+                        <img className="w-50" src={logo} alt="Logo" />
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-full md:w-1/2">
                         <div className="flex justify-center space-x-8 text-white text-lg mb-6">
                             <button
                                 onClick={() => setActiveTab("login")}
@@ -63,9 +50,7 @@ const AuthForm = () => {
                             </button>
                         </div>
 
-                        {/* Form */}
                         <form onSubmit={handleSubmit} className="space-y-4">
-                            {/* Login As dropdown */}
                             <div>
                                 <label className="block text-white/80 mb-1 text-sm">Login As</label>
                                 <select
@@ -79,7 +64,6 @@ const AuthForm = () => {
                                 </select>
                             </div>
 
-                            {/* Email input */}
                             <div>
                                 <label className="block text-white/80 mb-1 text-sm">Email</label>
                                 <div className="relative">
@@ -94,7 +78,6 @@ const AuthForm = () => {
                                 </div>
                             </div>
 
-                            {/* Password input */}
                             <div>
                                 <label className="block text-white/80 mb-1 text-sm">Password</label>
                                 <div className="relative">
@@ -134,7 +117,7 @@ const AuthForm = () => {
                             </button>
                         </form>
 
-                        <p className="text-center text-white/60 text-sm">
+                        <p className="text-center text-white/60 text-sm mt-4">
                             {activeTab === "login" ? "Don't have an account?" : "Already have an account?"}{" "}
                             <button
                                 onClick={() => setActiveTab(activeTab === "login" ? "register" : "login")}

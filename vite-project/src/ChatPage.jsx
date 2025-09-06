@@ -73,7 +73,7 @@ const ChatPage = () => {
             </button>
           )}
           <button
-            onClick={() => navigate("/auth")}
+            onClick={() => navigate("/")}
             className="px-3 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md"
           >
             Login

@@ -7,8 +7,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ChatPage />} />
-        <Route path="/auth" element={<AuthForm />} />
+        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/" element={<AuthForm />} />
       </Routes>
     </Router>
   );

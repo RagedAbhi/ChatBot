@@ -23,13 +23,11 @@ const AuthForm = () => {
 
     return (
         <div
-            className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-start bg-gradient-to-tl from-[#2D3092] via-[#00AEFF] to-[#FFCB06]"
+            className="mainBox relative w-full h-full md:h-screen bg-cover bg-center flex flex-col items-center justify-start bg-gradient-to-tl from-[#2D3092] via-[#00AEFF] to-[#FFCB06] shadow-2xl"
         >
             <div className="absolute inset-0 bg-black/20"></div>
 
-            {/* Use responsive classes for background: transparent on mobile, blurred on md and up */}
             <div className="flex flex-col relative bg-transparent md:bg-white/30 md:backdrop-blur-md rounded-xl shadow-lg w-full max-w-3xl p-8 space-y-6 mx-4 mt-20 z-10">
-                {/* Tabs and Form Section */}
                 <div className="flex flex-col md:flex-row justify-evenly">
                     <div className="flex justify-center items-center mb-6 md:mb-0">
                         <img className="w-50" src={logo} alt="Logo" />
